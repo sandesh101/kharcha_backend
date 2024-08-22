@@ -2,10 +2,13 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
     try {
-        const connection = await mongoose.connect(`${process.env.MONGODB_URI}/${process.env.DB_NAME}`);
+        const connection = await mongoose.connect(`${process.env.MONGODB_URI}/${process.env.DB_NAME}`, {
+            useNewUrlParse: true,
+            useUnifiedTopology: true
+        });
         console.log("🟢 DB CONNECTION SUCCESSFUL");
     } catch (e) {
-        console.log(e);
+        console.log(`🔴 DB CONNECTION FAILED: ${e}`);
         process.exit(0);
     }
 }
