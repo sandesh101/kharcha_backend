@@ -9,7 +9,7 @@ const connectDB = async () => {
         console.log("🟢 DB CONNECTION SUCCESSFUL");
     } catch (e) {
         console.log(`🔴 DB CONNECTION FAILED: ${e}`);
-        process.exit(0);
+        process.exit(1);
     }
 }
 
